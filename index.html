@@ -52,9 +52,9 @@
 				<section>
 					<section>
 						<h2>What is Modularization</h2>
-						<p>
-							A programming style that breaks down program functions into modules, each of which accomplishes one function and contains all the source code and variables needed to accomplish that function
-						</p>
+						<blockquote>
+							&ldquo;A programming style that breaks down program functions into modules, each of which accomplishes one function and contains all the source code and variables needed to accomplish that function&rdquo;
+						</blockquote>
 					</section>
 					<section>
 						<p>
@@ -70,9 +70,9 @@
 				<section>
 					<section>
 						<h2>Why Modularization</h2>
-						<p>
-							We humans are limited when it comes to grasping complex problems all at once. However, we are gifted in the ability to decompose a complex problem into a (possibly very large) number of individual problems that are not too complex in order to tackle the big problem
-						</p>
+						<blockquote>
+							&ldquo;We humans are limited when it comes to grasping complex problems all at once. However, we are gifted in the ability to decompose a complex problem into a (possibly very large) number of individual problems that are not too complex in order to tackle the big problem&rdquo;
+						</blockquote>
 						<p>
 							This is fundamentally what drives answers like "reuse", "separation of concerns", "easier maintenance"
 						</p>
@@ -80,12 +80,12 @@
 					<section>
 						<h2>Why Modular Standard</h2>
 						<ul>
-							<li>solve global conflict</li>
-							<li>distinct namespace</li>
-							<li>no concern of dependency references</li>
-							<li>handy tools are ready for use</li>
-							<li>complete documentation</li>
-							<li>easy to learn, easy to share</li>
+							<li>Solve global conflict</li>
+							<li>Distinct namespace</li>
+							<li>No concern of dependency references</li>
+							<li>Handy tools are ready for use</li>
+							<li>Complete documentation</li>
+							<li>Easy to learn, easy to share</li>
 						</ul>
 					</section>
 				</section>
@@ -108,7 +108,7 @@ var loginModule = (function() {
     'use strict';
 
     var module = {};
-    module.login = function(userNameValue, userPasswordValue) {
+    module.login = function(userName, userPassword) {
         console.log('login implementation omitted');
     };
 
@@ -126,7 +126,7 @@ var loginModule = (function() {
     'use strict';
 
     var module = {};
-    module.login = function(userNameValue, userPasswordValue) {
+    module.login = function(userName, userPassword) {
         console.log('rest of login implementation is omitted');
     };
 
@@ -143,11 +143,10 @@ var loginModule = (function() {
 					<section>
 						<h2>Define Module In AMD</h2>
 						<pre><code data-trim class="javascript">
-define(
-    [module_id,]
-    [dependencies],
-    function (){}
-);
+define([module_id,] [dependencies], function (){
+	'use strict';
+	//callback
+});
 						</code></pre>
 					</section>
 					<section>
@@ -155,6 +154,7 @@ define(
 						<small>PageFactory.js</small>
 						<pre><code data-trim class="javascript">
 define(['jquery'], function($) {
+    'use strict';
 
     console.log('jquery module is loaded');
 
@@ -173,6 +173,8 @@ define(['jquery'], function($) {
 						<small>Boot.js</small>
 						<pre><code data-trim class="javascript">
 define(['PageFactory'], function(pageFactory) {
+	'use strict';
+
     console.log('tell other modules that page is loaded');
     pageFactory.pageReady();
 });
@@ -187,35 +189,71 @@ git checkout amd
 npm install
 npm run start
 						</code></pre>
-						<blockquote>
-							Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo or Check the code
-						</blockquote>
+						<p>
+							Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+						</p>
+						<p>
+							Go and Check the source code to see how they work
+						</p>
 					</section>
 				</section>
 
 				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+					<section>
+						<h2>Define Module In CommonJS</h2>
+						<pre><code data-trim class="javascript">
+'use strict';
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+var sample = function(){};
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+module.exports = sample;
+						</code></pre>
+					</section>
+					<section>
+						<h2>Real Example</h2>
+						<small>PageFactory.js</small>
+						<pre><code data-trim class="javascript">
+'use strict';
+var $ = require('jquery');
+console.log('jquery module is loaded');
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+var factory = {};
 
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
+factory.pageReady = function(){
+    $(document).trigger('page-ready');
+};
+
+module.exports = factory;
+
+						</code></pre>
+					</section>
+					<section>
+						<h2>Real Example</h2>
+						<small>Boot.js</small>
+						<pre><code data-trim class="javascript">
+var pageFactory = require('PageFactory');
+
+console.log('tell other modules that page is loaded');
+
+pageFactory.pageReady();
+						</code></pre>
+					</section>
+					<section>
+						<h2>Play Demo</h2>
+						<pre><code data-trim class="bash">
+git clone https://github.com/leftstick/why-modularization.git
+cd why-modularization
+git checkout commonjs
+npm install
+npm run start
+						</code></pre>
+						<p>
+							Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+						</p>
+						<p>
+							Go and Check the source code to see how they work
+						</p>
+					</section>
 				</section>
 
 				<section>
