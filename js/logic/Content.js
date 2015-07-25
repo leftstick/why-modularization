@@ -1,11 +1,11 @@
 'use strict';
-var tpl = require('../../template/Content.html');
-var $ = require('jquery');
+import tpl from '../../template/Content.html';
+import $ from 'jquery';
 
 var Content = {};
 
-Content.create = function() {
+Content.create = () => {
     $('body').append(tpl);
 };
 
-module.exports = Content;
+export default Content;

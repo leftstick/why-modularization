@@ -1,11 +1,11 @@
 'use strict';
-var tpl = require('../../template/Footer.html');
-var $ = require('jquery');
+import tpl from '../../template/Footer.html';
+import $ from 'jquery';
 
 var Footer = {};
 
-Footer.create = function() {
+Footer.create = () => {
     $('body').append(tpl);
 };
 
-module.exports = Footer;
+export default Footer;

@@ -1,12 +1,12 @@
 'use strict';
 
-var tpl = require('../../template/Header.html');
-var $ = require('jquery');
+import tpl from '../../template/Header.html';
+import $ from 'jquery';
 
 var Header = {};
 
-Header.create = function() {
+Header.create = () => {
     $('body').append(tpl);
 };
 
-module.exports = Header;
+export default Header;

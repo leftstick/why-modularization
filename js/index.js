@@ -1,9 +1,9 @@
 'use strict';
 
-require('bootstrap/dist/css/bootstrap.css');
-var Header = require('./logic/Header');
-var Content = require('./logic/Content');
-var Footer = require('./logic/Footer');
+import 'bootstrap/dist/css/bootstrap.css';
+import Header from './logic/Header';
+import Content from './logic/Content';
+import Footer from './logic/Footer';
 
 console.log('document loaded');
 Header.create();
