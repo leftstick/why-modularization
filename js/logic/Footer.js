@@ -1,11 +1,11 @@
-define(['../../template/Footer.html', 'jquery'], function(tpl, $) {
-    'use strict';
+'use strict';
+var tpl = require('../../template/Footer.html');
+var $ = require('jquery');
 
-    var Footer = {};
+var Footer = {};
 
-    Footer.create = function() {
-        $('body').append(tpl);
-    };
+Footer.create = function() {
+    $('body').append(tpl);
+};
 
-    return Footer;
-});
+module.exports = Footer;

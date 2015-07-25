@@ -1,11 +1,12 @@
-define(['../../template/Header.html', 'jquery'], function(tpl, $) {
-    'use strict';
+'use strict';
 
-    var Header = {};
+var tpl = require('../../template/Header.html');
+var $ = require('jquery');
 
-    Header.create = function() {
-        $('body').append(tpl);
-    };
+var Header = {};
 
-    return Header;
-});
+Header.create = function() {
+    $('body').append(tpl);
+};
+
+module.exports = Header;

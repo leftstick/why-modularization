@@ -1,11 +1,11 @@
-define(['../../template/Content.html', 'jquery'], function(tpl, $) {
-    'use strict';
+'use strict';
+var tpl = require('../../template/Content.html');
+var $ = require('jquery');
 
-    var Content = {};
+var Content = {};
 
-    Content.create = function() {
-        $('body').append(tpl);
-    };
+Content.create = function() {
+    $('body').append(tpl);
+};
 
-    return Content;
-});
+module.exports = Content;
