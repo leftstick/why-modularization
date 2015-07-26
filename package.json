@@ -1,0 +1,25 @@
+{
+  "name": "why-modularization",
+  "version": "1.0.0",
+  "description": "You should know about modularization",
+  "homepage": "https://github.com/leftstick/why-modularization",
+  "subdomain": "why-modularization",
+  "author": {
+    "name": "Howard.Zuo",
+    "email": "leftstick@qq.com",
+    "web": "http://leftstick.gitcafe.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leftstick/why-modularization.git"
+  },
+  "engines": {
+    "node": "~0.12.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+
+  "license": "MIT"
+}

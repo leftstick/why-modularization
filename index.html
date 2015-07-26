@@ -1,109 +1,110 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>Why Modularization</title>
+        <title>Why Modularization</title>
 
-		<meta name="description" content="A slide tell you why we need modularization in frontend development, and how many modular flavors can we choose in our product">
-		<meta name="author" content="Howard Zuo">
+        <meta name="description" content="A slide tell you why we need modularization in frontend development, and how many modular flavors can we choose in our product">
+        <meta name="author" content="Howard Zuo">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/modular.css">
-		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/modular.css">
+        <link rel="stylesheet" href="css/theme/moon.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
+        <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Modularization</h1>
-					<h3>The important thing you should know as a frontend engineer</h3>
-					<p>
-						<small>Created by <a href="http://leftstick.gitcafe.io/">Howard Zuo</a> / <a href="http://weibo.com/p/1005051837649133">@右领军大都督</a></small>
-					</p>
-				</section>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Modularization</h1>
+                    <h3>The important thing you should know as a frontend developer</h3>
+                    <p>
+                        <small>Created by <a href="http://leftstick.gitcafe.io/">Howard Zuo</a> / <a href="http://weibo.com/p/1005051837649133">@右领军大都督</a></small>
+                    </p>
+                </section>
 
-				<section>
-					<section>
-						<h2>What is Modularization</h2>
-						<blockquote>
-							&ldquo;A programming style that breaks down program functions into modules, each of which accomplishes one function and contains all the source code and variables needed to accomplish that function&rdquo;
-						</blockquote>
-					</section>
-					<section>
-						<p>
-							It's composed of a set of highly decoupled, distinct pieces of functionality stored in modules
-						</p>
-						<small>
-							As you probably know, loose coupling facilitates easier maintainability of apps by removing dependencies where possible. When this is implemented efficiently, its quite easy to see how changes to one part of a system may affect another
-						</small>
-					</section>
-				</section>
+                <section>
+                    <section>
+                        <h2>What is Modularization</h2>
+                        <blockquote>
+                            &ldquo;A programming style that breaks down program functions into modules, each of which accomplishes one function and contains all the source code and variables needed to accomplish that function&rdquo;
+                        </blockquote>
+                    </section>
+                    <section>
+                        <p>
+                            It's composed of a set of highly decoupled, distinct pieces of functionality stored in modules
+                        </p>
+                        <small>
+                            As you probably know, loose coupling facilitates easier maintainability of apps by removing dependencies where possible. When this is implemented efficiently, its quite easy to see how changes to one part of a system may affect another
+                        </small>
+                    </section>
+                </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Why Modularization</h2>
-						<blockquote>
-							&ldquo;We humans are limited when it comes to grasping complex problems all at once. However, we are gifted in the ability to decompose a complex problem into a (possibly very large) number of individual problems that are not too complex in order to tackle the big problem&rdquo;
-						</blockquote>
-						<p>
-							This is fundamentally what drives answers like "reuse", "separation of concerns", "easier maintenance"
-						</p>
-					</section>
-					<section>
-						<h2>Why Modular Standard</h2>
-						<ul>
-							<li>Solve global conflict</li>
-							<li>Distinct namespace</li>
-							<li>No concern of dependency references</li>
-							<li>Handy tools are ready for use</li>
-							<li>Complete documentation</li>
-							<li>Easy to learn, easy to share</li>
-						</ul>
-					</section>
-				</section>
+                <!-- Example of nested vertical slides -->
+                <section>
+                    <section>
+                        <h2>Why Modularization</h2>
+                        <blockquote>
+                            &ldquo;We humans are limited when it comes to grasping complex problems all at once. However, we are gifted in the ability to decompose a complex problem into a (possibly very large) number of individual problems that are not too complex in order to tackle the big problem&rdquo;
+                        </blockquote>
+                        <p>
+                            This is fundamentally what drives answers like "reuse", "separation of concerns", "easier maintenance"
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Why Modular Standard</h2>
+                        <ul>
+                            <li>Solve global conflict</li>
+                            <li>Distinct namespace</li>
+                            <li>No concern of dependency references</li>
+                            <li>Handy tools are ready for use</li>
+                            <li>Complete documentation</li>
+                            <li>Easy to learn, easy to share</li>
+                        </ul>
+                    </section>
+                </section>
 
-				<section>
-					<section>
-						<h2>Modularity Flavors</h2>
-						<ul style="list-style-type: none;">
-							<li class="icon-success"><a href="http://requirejs.org/" target="_blank">AMD(Asynchronous Module Definition)</a></li>
-							<li class="icon-success"><a href="http://www.commonjs.org/specs/modules/1.0/" target="_blank">CommonJS</a></li>
-							<li class="icon-success"><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-modules" target="_blank">ES6 Harmony</a></li>
-							<li class="icon-help"><a href="#/anonymous-closures">Anonymous Closures</a></li>
-							<li class="icon-help"><a href="#/anonymous-closures-global">Anonymous Closures With Global Injected</a></li>
-						</ul>
-					</section>
-					<section id="anonymous-closures">
+                <section>
+                    <section>
+                        <h2>Modularity Flavors</h2>
+                        <ul style="list-style-type: none;">
+                            <li class="icon-success"><a href="http://requirejs.org/" target="_blank">AMD(Asynchronous Module Definition)</a></li>
+                            <li class="icon-success"><a href="http://www.commonjs.org/specs/modules/1.0/" target="_blank">CommonJS</a></li>
+                            <li class="icon-success"><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-modules" target="_blank">ES6 Harmony</a></li>
+                            <li class="icon-help"><a href="#/anonymous-closures">Anonymous Closures</a></li>
+                            <li class="icon-help"><a href="#/anonymous-closures-global">Anonymous Closures With Global Injected</a></li>
+                        </ul>
+                    </section>
+                    <section id="anonymous-closures">
                         <h2>Anonymous Closures</h2>
-						<pre><code data-trim class="javascript">
+                        <pre><code data-trim class="javascript">
 var loginModule = (function() {
     'use strict';
 
@@ -118,10 +119,10 @@ var loginModule = (function() {
 
     return module;
 })();</code></pre>
-					</section>
-					<section id="anonymous-closures-global">
+                    </section>
+                    <section id="anonymous-closures-global">
                         <h2>Anonymous Closures With Global Injected</h2>
-						<pre><code data-trim class="javascript">
+                        <pre><code data-trim class="javascript">
 (function(global) {
     'use strict';
 
@@ -136,22 +137,22 @@ var loginModule = (function() {
 
     global.loginModule = module;
 })(this);</code></pre>
-					</section>
-				</section>
+                    </section>
+                </section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<section>
-						<h2>Define Module In AMD</h2>
-						<pre><code data-trim class="javascript">
+                <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+                    <section>
+                        <h2>Define Module In AMD</h2>
+                        <pre><code data-trim class="javascript">
 define([module_id,] [dependencies], function (){
-	'use strict';
-	//callback
+    'use strict';
+    //callback
 });</code></pre>
-					</section>
-					<section>
-						<h2>Real Example</h2>
-						<small>PageFactory.js</small>
-						<pre><code data-trim class="javascript">
+                    </section>
+                    <section>
+                        <h2>Real Example</h2>
+                        <small>PageFactory.js</small>
+                        <pre><code data-trim class="javascript">
 define(['jquery'], function($) {
     'use strict';
 
@@ -165,49 +166,49 @@ define(['jquery'], function($) {
 
     return factory;
 });</code></pre>
-					</section>
-					<section>
-						<h2>Real Example</h2>
-						<small>Boot.js</small>
-						<pre><code data-trim class="javascript">
+                    </section>
+                    <section>
+                        <h2>Real Example</h2>
+                        <small>Boot.js</small>
+                        <pre><code data-trim class="javascript">
 define(['PageFactory'], function(pageFactory) {
-	'use strict';
+    'use strict';
 
     console.log('tell other modules that page is loaded');
     pageFactory.pageReady();
 });</code></pre>
-					</section>
-					<section>
-						<h2>Play Demo</h2>
-						<pre><code data-trim class="bash">
+                    </section>
+                    <section>
+                        <h2>Play Demo</h2>
+                        <pre><code data-trim class="bash">
 git clone https://github.com/leftstick/why-modularization.git
 cd why-modularization
 git checkout amd
 npm install
 npm run start</code></pre>
-						<p>
-							Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
-						</p>
-						<p>
-							Go and Check the source code to see how they work
-						</p>
-					</section>
-				</section>
+                        <p>
+                            Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+                        </p>
+                        <p>
+                            Go and Check the source code to see how they work
+                        </p>
+                    </section>
+                </section>
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<section>
-						<h2>Define Module In CommonJS</h2>
-						<pre><code data-trim class="javascript">
+                <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+                    <section>
+                        <h2>Define Module In CommonJS</h2>
+                        <pre><code data-trim class="javascript">
 'use strict';
 
 var sample = function(){};
 
 module.exports = sample;</code></pre>
-					</section>
-					<section>
-						<h2>Real Example</h2>
-						<small>PageFactory.js</small>
-						<pre><code data-trim class="javascript">
+                    </section>
+                    <section>
+                        <h2>Real Example</h2>
+                        <small>PageFactory.js</small>
+                        <pre><code data-trim class="javascript">
 'use strict';
 
 var $ = require('jquery');
@@ -221,11 +222,11 @@ factory.pageReady = function(){
 };
 
 module.exports = factory;</code></pre>
-					</section>
-					<section>
-						<h2>Real Example</h2>
-						<small>Boot.js</small>
-						<pre><code data-trim class="javascript">
+                    </section>
+                    <section>
+                        <h2>Real Example</h2>
+                        <small>Boot.js</small>
+                        <pre><code data-trim class="javascript">
 'use strict';
 
 var pageFactory = require('PageFactory');
@@ -233,39 +234,39 @@ var pageFactory = require('PageFactory');
 console.log('tell other modules that page is loaded');
 
 pageFactory.pageReady();</code></pre>
-					</section>
-					<section>
-						<h2>Play Demo</h2>
-						<pre><code data-trim class="bash">
+                    </section>
+                    <section>
+                        <h2>Play Demo</h2>
+                        <pre><code data-trim class="bash">
 git clone https://github.com/leftstick/why-modularization.git
 cd why-modularization
 git checkout commonjs
 npm install
 npm run start</code></pre>
-						<p>
-							Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
-						</p>
-						<p>
-							Go and Check the source code to see how they work
-						</p>
-					</section>
-				</section>
+                        <p>
+                            Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+                        </p>
+                        <p>
+                            Go and Check the source code to see how they work
+                        </p>
+                    </section>
+                </section>
 
-				<section data-transition="slide" data-background="#bbbaaa" data-background-transition="zoom">
-					<section>
-						<h2>Define Module In ES6</h2>
-						<pre><code data-trim class="javascript">
+                <section data-transition="slide" data-background="#bbbaaa" data-background-transition="zoom">
+                    <section>
+                        <h2>Define Module In ES6</h2>
+                        <pre><code data-trim class="javascript">
 'use strict';
 
 var sum = (x, y) => {
     return x + y;
 };
 export default sum;</code></pre>
-					</section>
-					<section>
-						<h2>Real Example</h2>
-						<small>PageFactory.js</small>
-						<pre><code data-trim class="javascript">
+                    </section>
+                    <section>
+                        <h2>Real Example</h2>
+                        <small>PageFactory.js</small>
+                        <pre><code data-trim class="javascript">
 'use strict';
 
 import $ from 'jquery';
@@ -278,11 +279,11 @@ factory.pageReady = () => {
 };
 
 export default factory;</code></pre>
-					</section>
-					<section>
-						<h2>Real Example</h2>
-						<small>Boot.js</small>
-						<pre><code data-trim class="javascript">
+                    </section>
+                    <section>
+                        <h2>Real Example</h2>
+                        <small>Boot.js</small>
+                        <pre><code data-trim class="javascript">
 'use strict';
 
 import pageFactory from 'PageFactory';
@@ -290,78 +291,81 @@ import pageFactory from 'PageFactory';
 console.log('tell other modules that page is loaded');
 
 pageFactory.pageReady();</code></pre>
-					</section>
-					<section>
-						<h2>Play Demo</h2>
-						<pre><code data-trim class="bash">
+                    </section>
+                    <section>
+                        <h2>Play Demo</h2>
+                        <pre><code data-trim class="bash">
 git clone https://github.com/leftstick/why-modularization.git
 cd why-modularization
 git checkout es6
 npm install
 npm run start</code></pre>
-						<p>
-							Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
-						</p>
-						<p>
-							Go and Check the source code to see how they work
-						</p>
-					</section>
-				</section>
+                        <p>
+                            Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+                        </p>
+                        <p>
+                            Go and Check the source code to see how they work
+                        </p>
+                    </section>
+                </section>
 
-				<section>
-					<h2>Advertisement</h2>
-				    <ul>
-				    	<li><a href="https://www.npmjs.com/package/angular-h-sweetalert" target="_blank">angular-h-sweetalert</a></li>
-				    	<li><a href="https://www.npmjs.com/package/angular-sweetnotifier" target="_blank">angular-sweetnotifier</a></li>
-				    	<li><a href="https://www.npmjs.com/package/angular-theme-spinner" target="_blank">angular-theme-spinner</a></li>
-						<li><a href="https://www.npmjs.com/package/generator-es6-angular" target="_blank">generator-es6-angular</a></li>
-						<li><a href="https://github.com/leftstick/jekyll-materiallize" target="_blank">jekyll-materiallize</a></li>
-						<li><a href="https://github.com/leftstick/fe-interview" target="_blank">fe-interview</a></li>
-						<li><a href="https://www.npmjs.com/package/sero-cli" target="_blank">sero-cli</a></li>
-						<li><a href="https://www.npmjs.com/package/splash-screen" target="_blank">splash-screen</a></li>
-						<li><a href="https://github.com/leftstick/windtalker" target="_blank">windtalker</a></li>
-				    </ul>
-				</section>
+                <section>
+                    <h2>Advertisement</h2>
+                    <ul>
+                        <li><a href="https://www.npmjs.com/package/angular-h-sweetalert" target="_blank">angular-h-sweetalert</a></li>
+                        <li><a href="https://www.npmjs.com/package/angular-sweetnotifier" target="_blank">angular-sweetnotifier</a></li>
+                        <li><a href="https://www.npmjs.com/package/angular-theme-spinner" target="_blank">angular-theme-spinner</a></li>
+                        <li><a href="https://www.npmjs.com/package/generator-es6-angular" target="_blank">generator-es6-angular</a></li>
+                        <li><a href="https://github.com/leftstick/jekyll-materiallize" target="_blank">jekyll-materiallize</a></li>
+                        <li><a href="https://github.com/leftstick/fe-interview" target="_blank">fe-interview</a></li>
+                        <li><a href="https://www.npmjs.com/package/sero-cli" target="_blank">sero-cli</a></li>
+                        <li><a href="https://www.npmjs.com/package/splash-screen" target="_blank">splash-screen</a></li>
+                        <li><a href="https://github.com/leftstick/windtalker" target="_blank">windtalker</a></li>
+                    </ul>
+                </section>
 
-				<section>
-					<h1>Thanks</h1>
-					<h4>Welcome give a try of ES6</h4>
-					<p>
-						- <a href="https://github.com/leftstick/why-modularization">Source Code</a> <br>
-					</p>
-				</section>
+                <section>
+                    <h1>Thanks</h1>
+                    <h4>Welcome give a try of ES6</h4>
+                    <p>
+                        - <a href="https://github.com/leftstick/why-modularization">Source Code</a> <br>
+                    </p>
+                </section>
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-		<script>
+        <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+                leap: {
+                    naturalSwipe   : false,    // Invert swipe gestures
+                    pointerOpacity : 0.5,      // Set pointer opacity to 0.5
+                    pointerColor   : '#d80000' // Red pointer
+                },
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    // { src: 'plugin/leap/leap.js', async: true }
+                ]
+            });
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 </html>
