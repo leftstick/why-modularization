@@ -19,15 +19,17 @@
     -moz-transform: translateY(-500px);
     -webkit-transform: translateY(-500px);
     -o-transform: translateY(-500px);
-    -webkit-transform: translateY(-500px);
     transition: all 2s ease 0s;
     -moz-transition: all 2s ease 0s;
     -webkit-transition: all 2s ease 0s;
     -o-transition: all 2s ease 0s;
-    -webkit-transition: all 2s ease 0s;
 }
 
 .showqr .qrcode{
     transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -o-transform: translateY(0px);
     opacity: 1;
 }
