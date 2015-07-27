@@ -19,10 +19,12 @@
     -moz-transform: translateY(-500px);
     -webkit-transform: translateY(-500px);
     -o-transform: translateY(-500px);
+    -webkit-transform: translateY(-500px);
     transition: all 2s ease 0s;
     -moz-transition: all 2s ease 0s;
     -webkit-transition: all 2s ease 0s;
     -o-transition: all 2s ease 0s;
+    -webkit-transition: all 2s ease 0s;
 }
 
 .showqr .qrcode{
