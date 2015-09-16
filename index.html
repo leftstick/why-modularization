@@ -232,10 +232,11 @@ define(['jquery', 'lodash', 'UserService',  'usersTpl.html'], function($, _, Use
 git clone https://github.com/leftstick/why-modularization.git
 cd why-modularization
 git checkout amd
+npm install sero-cli -g
 npm install
-npm run start</code></pre>
+npm start</code></pre>
                         <p>
-                            Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+                            Go open <a href="http://localhost:8080">http://localhost:8080</a> to view the demo
                         </p>
                         <p>
                             Go and Check the source code to see how they work
@@ -254,34 +255,80 @@ var sample = function(){};
 module.exports = sample;</code></pre>
                     </section>
                     <section>
-                        <h2>Real Example</h2>
-                        <small>PageFactory.js</small>
+                        <small>UserModel.js</small>
                         <pre><code data-trim class="javascript">
 'use strict';
 
-var $ = require('jquery');
-
-console.log('jquery module is loaded');
-
-var factory = {};
-
-factory.pageReady = function(){
-    $(document).trigger('page-ready');
+var User = function() {
+    this.data = {};
 };
 
-module.exports = factory;</code></pre>
+User.prototype.set = function(key, value) {
+    this.data[key] = value;
+};
+
+User.prototype.get = function(key) {
+    return this.data[key];
+};
+
+User.prototype.toString = function() {
+    return JSON.stringify(this.data);
+};
+
+module.exports = User;</code></pre>
                     </section>
                     <section>
-                        <h2>Real Example</h2>
-                        <small>Boot.js</small>
+                        <small>UserService.js</small>
                         <pre><code data-trim class="javascript">
 'use strict';
 
-var pageFactory = require('PageFactory');
+var User = require('./UserModel');
+var $ = require('jquery');
 
-console.log('tell other modules that page is loaded');
+var service = {};
 
-pageFactory.pageReady();</code></pre>
+service.fetchUsers = function() {
+    return $.ajax({
+        url: '/mock/users.json',
+        method: 'GET',
+        dataType: 'json',
+        converters: {
+            'text json': function(raw) {
+                var data = JSON.parse(raw);
+                var users = data.map(function(d) {
+                    var user = new User();
+                    user.set('name', d.name);
+                    user.set('age', d.age);
+                    return user;
+                });
+                return users;
+            }
+        }
+    });
+};
+
+module.exports = service;</code></pre>
+                    </section>
+                    <section>
+                        <small>Controller.js</small>
+                        <pre><code data-trim class="javascript">
+'use strict';
+
+require('bootstrap/dist/css/bootstrap.css');
+var $ = require('jquery');
+var _ = require('lodash');
+var UserService = require('./logic/UserService');
+var usersTpl = require('./logic/usersTpl.html');
+
+setTimeout(function() {
+    UserService.fetchUsers(Math.random() * 100)
+        .done(function(users) {
+            var html = _.template(usersTpl)({users: users});
+            $('.usersList').empty();
+            $('.usersList').append(html);
+            $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
+        });
+}, 1000);</code></pre>
                     </section>
                     <section>
                         <h2>Play Demo</h2>
@@ -289,10 +336,11 @@ pageFactory.pageReady();</code></pre>
 git clone https://github.com/leftstick/why-modularization.git
 cd why-modularization
 git checkout commonjs
+npm install sero-cli -g
 npm install
-npm run start</code></pre>
+npm start</code></pre>
                         <p>
-                            Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+                            Go open <a href="http://localhost:8080">http://localhost:8080</a> to view the demo
                         </p>
                         <p>
                             Go and Check the source code to see how they work
@@ -309,36 +357,84 @@ npm run start</code></pre>
 var sum = (x, y) => {
     return x + y;
 };
+
 export default sum;</code></pre>
                     </section>
                     <section>
-                        <h2>Real Example</h2>
-                        <small>PageFactory.js</small>
+                        <small>UserModel.js</small>
+                        <pre><code data-trim class="javascript">
+'use strict';
+
+var User = function() {
+    this.data = {};
+};
+
+User.prototype.set = function(key, value) {
+    this.data[key] = value;
+};
+
+User.prototype.get = function(key) {
+    return this.data[key];
+};
+
+User.prototype.toString = function() {
+    return JSON.stringify(this.data);
+};
+
+export default User;</code></pre>
+                    </section>
+                    <section>
+                        <small>UserService.js</small>
                         <pre><code data-trim class="javascript">
 'use strict';
 
 import $ from 'jquery';
-console.log('jquery module is loaded');
+import User from './UserModel';
 
-var factory = {};
+var service = {};
 
-factory.pageReady = () => {
-    $(document).trigger('page-ready');
+service.fetchUsers = function() {
+    return $.ajax({
+        url: '/mock/users.json',
+        method: 'GET',
+        dataType: 'json',
+        converters: {
+            'text json': function(raw) {
+                var data = JSON.parse(raw);
+                var users = data.map(function(d) {
+                    var user = new User();
+                    user.set('name', d.name);
+                    user.set('age', d.age);
+                    return user;
+                });
+                return users;
+            }
+        }
+    });
 };
 
-export default factory;</code></pre>
+export default service;</code></pre>
                     </section>
                     <section>
-                        <h2>Real Example</h2>
-                        <small>Boot.js</small>
+                        <small>Controller.js</small>
                         <pre><code data-trim class="javascript">
 'use strict';
 
-import pageFactory from 'PageFactory';
+import 'bootstrap/dist/css/bootstrap.css';
+import $ from 'jquery';
+import _ from 'lodash';
+import UserService from './logic/UserService';
+import usersTpl from './logic/usersTpl.html';
 
-console.log('tell other modules that page is loaded');
-
-pageFactory.pageReady();</code></pre>
+setTimeout(function() {
+    UserService.fetchUsers(Math.random() * 100)
+        .done(function(users) {
+            var html = _.template(usersTpl)({users: users});
+            $('.usersList').empty();
+            $('.usersList').append(html);
+            $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
+        });
+}, 1000);</code></pre>
                     </section>
                     <section>
                         <h2>Play Demo</h2>
@@ -346,10 +442,11 @@ pageFactory.pageReady();</code></pre>
 git clone https://github.com/leftstick/why-modularization.git
 cd why-modularization
 git checkout es6
+npm install sero-cli -g
 npm install
-npm run start</code></pre>
+npm start</code></pre>
                         <p>
-                            Go open <a href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a> to view the demo
+                            Go open <a href="http://localhost:8080">http://localhost:8080</a> to view the demo
                         </p>
                         <p>
                             Go and Check the source code to see how they work
@@ -364,11 +461,11 @@ npm run start</code></pre>
                         <li><a href="https://www.npmjs.com/package/angular-sweetnotifier" target="_blank">angular-sweetnotifier</a></li>
                         <li><a href="https://www.npmjs.com/package/angular-theme-spinner" target="_blank">angular-theme-spinner</a></li>
                         <li><a href="https://www.npmjs.com/package/generator-es6-angular" target="_blank">generator-es6-angular</a></li>
-                        <li><a href="https://github.com/leftstick/jekyll-materiallize" target="_blank">jekyll-materiallize</a></li>
-                        <li><a href="https://github.com/leftstick/fe-interview" target="_blank">fe-interview</a></li>
+                        <li><a href="https://www.npmjs.com/package/generator-material-react" target="_blank">generator-material-react</a></li>
+                        <li><a href="https://www.npmjs.com/package/react-format-number" target="_blank">react-format-number</a></li>
+                        <li><a href="https://www.npmjs.com/package/fe-interview" target="_blank">fe-interview</a></li>
                         <li><a href="https://www.npmjs.com/package/sero-cli" target="_blank">sero-cli</a></li>
                         <li><a href="https://www.npmjs.com/package/splash-screen" target="_blank">splash-screen</a></li>
-                        <li><a href="https://github.com/leftstick/windtalker" target="_blank">windtalker</a></li>
                     </ul>
                 </section>
 
