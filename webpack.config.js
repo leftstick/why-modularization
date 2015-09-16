@@ -8,9 +8,10 @@ module.exports = {
         index: './js/index.js'
     },
     output: {
-        path: path.resolve(__dirname),
+        path: path.resolve(__dirname, 'build', 'js'),
         filename: '[name].bundle.js',
-        chunkFilename: '[id].bundle.js'
+        chunkFilename: '[id].bundle.js',
+        publicPath: 'js/'
     },
     module: {
         loaders: [
@@ -25,7 +26,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)\w*/,
-                loader: 'file'
+                loader: 'file?name=[path][name].[ext]'
             },
             {
                 test: /\.html$/,

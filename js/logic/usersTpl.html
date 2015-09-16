@@ -1,0 +1,5 @@
+<ul class="list-group">
+    <% users.forEach(function(user){ %>
+        <li class="list-group-item"><%= user.get('name') %>, <%= user.get('age') %></li>
+    <% }); %>
+</ul>

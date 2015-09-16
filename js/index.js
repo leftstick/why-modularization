@@ -1,14 +1,19 @@
 define([
     'bootstrap/dist/css/bootstrap.css',
-    './logic/Header',
-    './logic/Content',
-    './logic/Footer'
-], function(css, Header, Content, Footer) {
+    'jquery',
+    'lodash',
+    './logic/UserService',
+    './logic/usersTpl.html'
+], function(css, $, _, UserService, usersTpl) {
     'use strict';
 
-    console.log('document loaded');
-    Header.create();
-    Content.create();
-    Footer.create();
-    console.log('everything loaded');
+    setTimeout(function() {
+        UserService.fetchUsers(Math.random() * 100)
+            .done(function(users) {
+                var html = _.template(usersTpl)({users: users});
+                $('.usersList').empty();
+                $('.usersList').append(html);
+                $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
+            });
+    }, 1000);
 });
