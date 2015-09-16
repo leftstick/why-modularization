@@ -58,8 +58,9 @@
                         </blockquote>
                     </section>
                     <section>
+                        <h2>Modularity</h2>
                         <p>
-                            It's composed of a set of highly decoupled, distinct pieces of functionality stored in modules
+                            Generally a modular application is composed of a set of highly decoupled, distinct pieces of functionality stored in modules
                         </p>
                         <small>
                             As you probably know, loose coupling facilitates easier maintainability of apps by removing dependencies where possible. When this is implemented efficiently, its quite easy to see how changes to one part of a system may affect another
@@ -146,36 +147,83 @@ var loginModule = (function() {
                         <pre><code data-trim class="javascript">
 define([module_id,] [dependencies], function (){
     'use strict';
-    //callback
+
+    //Put the module definition here
 });</code></pre>
                     </section>
                     <section>
-                        <h2>Real Example</h2>
-                        <small>PageFactory.js</small>
+                        <small>UserModel.js</small>
                         <pre><code data-trim class="javascript">
-define(['jquery'], function($) {
+define([], function() {
     'use strict';
 
-    console.log('jquery module is loaded');
-
-    var factory = {};
-
-    factory.pageReady = function(){
-        $(document).trigger('page-ready');
+    var User = function(){
+        this.data = {};
     };
 
-    return factory;
+    User.prototype.set = function(key, value){
+        this.data[key] = value;
+    };
+
+    User.prototype.get = function(key){
+        return this.data[key];
+    };
+
+    User.prototype.toString = function(){
+        return JSON.stringify(this.data);
+    };
+
+    return User;
+
 });</code></pre>
                     </section>
                     <section>
-                        <h2>Real Example</h2>
-                        <small>Boot.js</small>
+                        <small>UserService.js</small>
                         <pre><code data-trim class="javascript">
-define(['PageFactory'], function(pageFactory) {
+define(['UserModel', 'jquery'], function(User, $) {
     'use strict';
 
-    console.log('tell other modules that page is loaded');
-    pageFactory.pageReady();
+    var service = {};
+
+    service.fetchUsersByCompany = function(companyId){
+        return $.ajax({
+                url: '/users',
+                method: 'method',
+                dataType: 'json',
+                converters: {
+                    "text json": function(raw){
+                        var data = JSON.parse(raw);
+                        var users = data.map(function(d){
+                            var user = new User();
+                            user.set('name', d.name);
+                            user.set('age', d.age);
+                            return user;
+                        });
+                        return users;
+                    }
+                }
+            });
+    };
+
+    return service;
+
+});</code></pre>
+                    </section>
+                    <section>
+                        <small>Controller.js</small>
+                        <pre><code data-trim class="javascript">
+define(['jquery', 'lodash', 'UserService',  'usersTpl.html'], function($, _, UserService, usersTpl) {
+    'use strict';
+
+    var companyId = $('.companyId').val();
+
+    UserService.fetchUsersByCompany(companyId)
+    .done(function(users){
+        var html = _.template(usersTpl)(users);
+        $('.usersList').empty();
+        $('.usersList').append(html);
+    });
+
 });</code></pre>
                     </section>
                     <section>
@@ -348,6 +396,7 @@ npm run start</code></pre>
                 progress: true,
                 history: true,
                 center: true,
+                width: 1096,
 
                 transition: 'slide', // none/fade/slide/convex/concave/zoom
                 leap: {

@@ -33,3 +33,7 @@
     -o-transform: translateY(0px);
     opacity: 1;
 }
+
+.reveal section pre code{
+    max-height: 600px;
+}
