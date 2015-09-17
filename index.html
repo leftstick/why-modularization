@@ -146,7 +146,7 @@ var loginModule = (function() {
     };
 
     global.loginModule = module;
-    
+
 })(this);</code></pre>
                     </section>
                 </section>
@@ -241,7 +241,7 @@ define(['jquery', 'lodash', 'UserService',  'usersTpl.html'], function($, _, Use
 
     UserService.fetchUsersByCompany(companyId)
     .done(function(users){
-        var html = _.template(usersTpl)(users);
+        var html = _.template(usersTpl)({users: users});
         $('.usersList').empty();
         $('.usersList').append(html);
     });
