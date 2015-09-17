@@ -71,24 +71,33 @@
                 <!-- Example of nested vertical slides -->
                 <section>
                     <section>
-                        <h2>Why Modularization</h2>
+                        <h1>Why Modularization?</h1>
+                    </section>
+                    <section>
+                        <div style="position:relative;">
+                            <img src="img/bad-01.png" width="800">
+                            <span style="position: absolute; top: 50%; margin-top: -110px; left: 50%; margin-left: -300px; color: #ff2c2d; font-size: 120px;" class="fragment fade-in">deprecated</span>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="position:relative;">
+                            <img src="img/bad-02.png" width="920">
+                            <span style="position: absolute; top: 50%; margin-top: -110px; left: 50%; margin-left: -300px; color: #ff2c2d; font-size: 120px;" class="fragment fade-in">deprecated</span>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="position:relative;">
+                            <img src="img/bad-03.png" width="660">
+                            <span style="position: absolute; top: 50%; margin-top: -110px; left: 50%; margin-left: -215px; color: #ff2c2d; font-size: 120px;" class="fragment fade-in">No Way</span>
+                        </div>
+                    </section>
+                    <section>
                         <blockquote>
                             &ldquo;We humans are limited when it comes to grasping complex problems all at once. However, we are gifted in the ability to decompose a complex problem into a (possibly very large) number of individual problems that are not too complex in order to tackle the big problem&rdquo;
                         </blockquote>
                         <p>
                             This is fundamentally what drives answers like "reuse", "separation of concerns", "easier maintenance"
                         </p>
-                    </section>
-                    <section>
-                        <h2>Why Modular Standard</h2>
-                        <ul>
-                            <li>Solve global conflict</li>
-                            <li>Distinct namespace</li>
-                            <li>No concern of dependency references</li>
-                            <li>Handy tools are ready for use</li>
-                            <li>Complete documentation</li>
-                            <li>Easy to learn, easy to share</li>
-                        </ul>
                     </section>
                 </section>
 
@@ -97,8 +106,8 @@
                         <h2>Modularity Flavors</h2>
                         <ul style="list-style-type: none;">
                             <li class="icon-success"><a href="http://requirejs.org/" target="_blank">AMD(Asynchronous Module Definition)</a></li>
-                            <li class="icon-success"><a href="http://www.commonjs.org/specs/modules/1.0/" target="_blank">CommonJS</a></li>
-                            <li class="icon-success"><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-modules" target="_blank">ES6 Harmony</a></li>
+                            <li class="icon-success"><a href="http://www.commonjs.org/specs/modules/1.0/" target="_blank">CommonJS Module</a></li>
+                            <li class="icon-success"><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-modules" target="_blank">ES6 Module</a></li>
                             <li class="icon-help"><a href="#/anonymous-closures">Anonymous Closures</a></li>
                             <li class="icon-help"><a href="#/anonymous-closures-global">Anonymous Closures With Global Injected</a></li>
                         </ul>
@@ -137,8 +146,21 @@ var loginModule = (function() {
     };
 
     global.loginModule = module;
+    
 })(this);</code></pre>
                     </section>
+                </section>
+
+                <section>
+                    <h2>Why Modular Standard</h2>
+                    <ul>
+                        <li>Avoid naming conflict in global</li>
+                        <li>Separation of dependency concerns</li>
+                        <li>File concatenation for production</li>
+                        <li>Handy tools are ready for use</li>
+                        <li>Complete documentation</li>
+                        <li>Easy to learn, easy to share</li>
+                    </ul>
                 </section>
 
                 <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
@@ -493,7 +515,7 @@ npm start</code></pre>
                 progress: true,
                 history: true,
                 center: true,
-                width: 1096,
+                width: 1299,
 
                 transition: 'slide', // none/fade/slide/convex/concave/zoom
                 leap: {
