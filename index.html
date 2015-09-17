@@ -202,12 +202,12 @@ define([], function() {
                     <section>
                         <small>UserService.js</small>
                         <pre><code data-trim class="javascript">
-define(['UserModel', 'jquery'], function(User, $) {
+define(['./UserModel', 'jquery'], function(User, $) {
     'use strict';
 
     var service = {};
 
-    service.fetchUsersByCompany = function(companyId){
+    service.fetchUsers = function(){
         return $.ajax({
                 url: '/users',
                 method: 'method',
@@ -234,12 +234,10 @@ define(['UserModel', 'jquery'], function(User, $) {
                     <section>
                         <small>Controller.js</small>
                         <pre><code data-trim class="javascript">
-define(['jquery', 'lodash', 'UserService',  'usersTpl.html'], function($, _, UserService, usersTpl) {
+define(['jquery', 'lodash', './logic/UserService',  './logic/usersTpl.html'], function($, _, UserService, usersTpl){
     'use strict';
 
-    var companyId = $('.companyId').val();
-
-    UserService.fetchUsersByCompany(companyId)
+    UserService.fetchUsers()
     .done(function(users){
         var html = _.template(usersTpl)({users: users});
         $('.usersList').empty();
@@ -342,15 +340,13 @@ var _ = require('lodash');
 var UserService = require('./logic/UserService');
 var usersTpl = require('./logic/usersTpl.html');
 
-setTimeout(function() {
-    UserService.fetchUsers(Math.random() * 100)
-        .done(function(users) {
-            var html = _.template(usersTpl)({users: users});
-            $('.usersList').empty();
-            $('.usersList').append(html);
-            $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
-        });
-}, 1000);</code></pre>
+UserService.fetchUsers()
+    .done(function(users) {
+        var html = _.template(usersTpl)({users: users});
+        $('.usersList').empty();
+        $('.usersList').append(html);
+        $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
+    });</code></pre>
                     </section>
                     <section>
                         <h2>Play Demo</h2>
@@ -448,15 +444,13 @@ import _ from 'lodash';
 import UserService from './logic/UserService';
 import usersTpl from './logic/usersTpl.html';
 
-setTimeout(function() {
-    UserService.fetchUsers(Math.random() * 100)
-        .done(function(users) {
-            var html = _.template(usersTpl)({users: users});
-            $('.usersList').empty();
-            $('.usersList').append(html);
-            $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
-        });
-}, 1000);</code></pre>
+UserService.fetchUsers()
+    .done(function(users) {
+        var html = _.template(usersTpl)({users: users});
+        $('.usersList').empty();
+        $('.usersList').append(html);
+        $('#info').toggleClass('alert-warning').toggleClass('alert-success').html('User List loaded');
+    });</code></pre>
                     </section>
                     <section>
                         <h2>Play Demo</h2>
