@@ -2,27 +2,28 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
         index: './js/index.js'
     },
     output: {
-        path: path.resolve(__dirname, 'build', 'js'),
+        path: path.resolve(__dirname, 'build'),
         filename: '[name].bundle.js',
         chunkFilename: '[id].bundle.js',
-        publicPath: 'js/'
+        publicPath: '/build/'
     },
     module: {
         loaders: [
             {
                 test: /\.css$/,
-                loader: 'style!css!autoprefixer?browsers=last 5 version!'
+                loader: 'style!css!postcss!'
             },
             {
                 test: /\.js$/,
-                loader: 'babel',
-                exclude: /(node_modules|bower_components)/
+                loader: 'babel?{"presets":["es2015"]}',
+                exclude: /(node_modules)/
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)\w*/,
@@ -33,6 +34,11 @@ module.exports = {
                 loader: 'raw'
             }
         ]
+    },
+    postcss: function() {
+        return [
+            autoprefixer({browsers: ['last 5 versions']})
+        ];
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin('common.bundle.js')
